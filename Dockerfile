@@ -3,7 +3,10 @@ ARG DOCKER_REGISTRY
 FROM ${DOCKER_REGISTRY:+${DOCKER_REGISTRY}/}python:3.9-slim
 
 RUN pip install --upgrade pip
-RUN pip install pytest
+RUN pip install --upgrade \
+  build \
+  pytest \
+  twine
 
 ARG CONTAINER_USER=default
 ARG CONTAINER_USER_GROUP=default
