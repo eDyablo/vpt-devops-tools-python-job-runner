@@ -2,8 +2,8 @@ ARG DOCKER_REGISTRY
 
 FROM ${DOCKER_REGISTRY:+${DOCKER_REGISTRY}/}python:3.9-slim
 
-RUN apt update \
-  && apt install \
+RUN apt --assume-yes update \
+  && apt --assume-yes install \
     git
 
 RUN pip install --upgrade pip
