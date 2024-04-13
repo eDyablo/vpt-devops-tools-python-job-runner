@@ -2,10 +2,13 @@ ARG DOCKER_REGISTRY
 
 FROM ${DOCKER_REGISTRY:+${DOCKER_REGISTRY}/}python:3.9-slim
 
+RUN apt update \
+  && apt install \
+    git
+
 RUN pip install --upgrade pip
 RUN pip install --upgrade \
   build \
-  git \
   pytest \
   twine
 
